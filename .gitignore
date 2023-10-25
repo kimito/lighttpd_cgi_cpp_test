@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# cmake
+build/
+
+# app
+html/api_app

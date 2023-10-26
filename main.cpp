@@ -19,8 +19,10 @@ void print_image()
     std::cout << cgicc::HTTPContentHeader("image/jpeg");
 
     cv::Mat img = cv::imread("./berries.jpg");
+    cv::Mat out;
+    cv::Sobel(img, out, CV_32F, 0, 1);
     std::vector<uchar>buf;
-    cv::imencode(".jpg", img, buf);
+    cv::imencode(".jpg", out, buf);
 
     std::cout.write(reinterpret_cast<const char*>(buf.data()), buf.size());
 }

@@ -5,6 +5,8 @@
 
 #include"opencv2/opencv.hpp"
 
+#include"query_string_parser.h"
+
 void print_api_info(const cgicc::CgiEnvironment &env)
 {
     std::cout << cgicc::HTTPContentHeader("text/plain");
@@ -31,6 +33,10 @@ int main(int argc, char* argv[])
 {
     cgicc::Cgicc cgi;
     auto env = cgi.getEnvironment();
+    QueryStringParser query(env.getQueryString());
+
+    std::cerr << "query k1:" << query.getAttribute("k1") << std::endl;
+    std::cerr << "query k2:" << query.getAttribute("k2") << std::endl;
 
     // print_api_info(env);
 

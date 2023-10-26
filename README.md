@@ -1,5 +1,10 @@
 # C++ cgi test on lighttpd
 
+## install deps
+```sh
+sudo install cmake build-essential lighttpd libcgicc-dev libopencv-dev
+```
+
 ## build the app
 ```sh
 mkdir build && cd build
@@ -14,5 +19,6 @@ cp ./api_app ../html/
 
 ## run the lighttpd for test
 ```sh
-/usr/sbin/lighttpd -D -f ./lighttpd.conf
+cd html/
+/usr/sbin/lighttpd -D -f ../lighttpd.conf
 ```
